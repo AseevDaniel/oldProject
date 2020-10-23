@@ -27,7 +27,7 @@
 <script>
 import Settings from './components/Settings.vue'
 import Tickets from './components/Tickets.vue'
-import tickets from './tickets.json'
+import tickets from '../tickets.json'
 import axios from 'axios'
 
 export default {
@@ -57,7 +57,7 @@ export default {
       await axios.get('http://localhost:3000/tickets')
       .then( response => {
         console.log('tickets from local server');
-        this.allTickets = response.data
+        this.allTickets = response.data.tickets
       })
       .catch( error => {
         console.log(error);

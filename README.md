@@ -2,15 +2,13 @@
 
 ## Project setup
 ```
-npm install -g json-server
-or (sudo npm install -g json-server) 
 npm install
 ```
 
 ### Project run
 ```
- 1. json-server tickets.json  // run fake server 
- 2. npm run serve
+ 1. npm run server  // run server 
+ 2. npm run client
 ```
 
 ### Compiles and hot-reloads for development
