@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import Settings from './components/Settings.vue'
-import Tickets from './components/Tickets.vue'
+const Settings = () => import('./components/Settings.vue')
+const Tickets = () => import('./components/Tickets.vue')
 import tickets from '../tickets.json'
 import axios from 'axios'
 

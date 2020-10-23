@@ -8,7 +8,7 @@ npm install
 ### Project run
 ```
  1. npm run server  // run server 
- 2. npm run client
+ 2. npm run client  // run client
 ```
 
 ### Compiles and hot-reloads for development
