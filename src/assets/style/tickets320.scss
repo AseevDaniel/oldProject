@@ -1,0 +1,144 @@
+//
+// префиксы показаны для примера, в файле package.json
+// поле "browserslist" автоматически добавляет нужные свойства
+// для выбранных браузеров
+//
+@mixin transformPref ($size) {
+  transform: translateX($size);
+  // -webkit-transform: translateX($size);
+  // -ms-transform: translateX($size);
+  // -moz-transform: translateX($size);
+}
+@mixin myBorderRaidus ($size){
+  border-radius: $size;
+  // -webkit-border-radius: $size;
+  // -moz-border-radius: $size;
+  // -ms-border-radius: $size;
+}
+@mixin flexPref {
+  // display: -ms-flexbox;
+  // display: -webkit-flex;
+  display: flex;
+}
+.tickets{
+  margin-top: 90px;
+  .ticket{
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    @include myBorderRaidus(5px);
+    box-shadow: 0 0 5px 1px #ccc;
+    transition: .5s;
+    &:hover{
+      box-shadow: 0 10px 15px 1px #ccc;
+    }
+    &__left-side{
+      @include flexPref;
+      padding-top: 20px;
+      position: relative;
+      width: 100%;
+      height: 70px;
+      &-buy{
+        width: 45%;
+        height: 60%;
+        position: absolute;
+        top: 20%;
+        right: -20%;
+        outline: none;
+        border: none;
+        background: #FF6D00;
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), 0px 1px 0px #D64D08;
+        border-radius: 5px;
+        @include transformPref(-50%);
+        transition: .5s;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        &:hover{
+          background: #FF8124;
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25), 0px 1px 0px #F7661D;
+        }
+      }
+      &-logo{
+        height: 90%;
+        margin-left: calc(2px + (100vw - 320px)/10);
+        border-radius: 5px;
+      }
+    }
+    &__right-side{
+      height: auto;
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      h1{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 26px;
+        color: #4A4A4A;
+        margin: 0;
+        margin-bottom: 12px;
+      }
+      h3{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 18px;
+        color: #4A4A4A;
+        margin: 0;
+      }
+      p{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 18px;
+        color: #8B9497;
+        margin: 0;
+      }
+      &-info{
+        padding: 20px;
+      }
+      .departure{
+        padding-left: calc(10px + (100vw - 320px)/20);
+      }
+      .arrival{
+        text-align: right;
+        margin-right: calc(180px - 70vw);
+      }
+    }
+    .transfers{
+      p{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 12px;
+        text-align: center;
+        color: #8B9497;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 114px;
+        &:after{
+          content:'';
+          height: 1px;
+          width: 50%;
+          background: #d2d5d6;
+          position: absolute;
+          top: 18px;
+          left: 50%;
+          transform: translateX(-55%);
+        }
+      }
+      img{
+        position: absolute;
+        top: 126px;
+        left: 73%;
+      }
+    }
+  }
+}

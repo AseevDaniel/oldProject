@@ -1,0 +1,159 @@
+//
+// префиксы показаны для примера, в файле package.json
+// поле "browserslist" автоматически добавляет нужные свойства
+// для выбранных браузеров
+//
+$colbg: #2196f4;
+$col2: #F2FCFF;
+
+@mixin myBorderRaidus ($size){
+  border-radius: $size;
+  // -webkit-border-radius: $size;
+  // -moz-border-radius: $size;
+  // -ms-border-radius: $size;
+}
+.settings{
+  z-index: 999;
+  position: absolute;
+  top: -130vh;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  display: block;
+  &__currency{
+    margin-top: 10px;
+    padding: 15px;
+    h4{
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 22px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    button{
+      width: 33.3%;
+      border: 1px solid #eee;
+      height: 60px;
+      background: #fff;
+      color: $colbg;
+      transition: .5s;
+      outline: none;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      &:hover{
+        border: 1px solid $colbg;
+        background-color: $col2;
+      }
+    }
+    .active{
+      background: $colbg;
+      color: #fff;
+      border: 1px solid $colbg;
+      &:hover{
+        background: $colbg;
+        color: #fff;
+       border: 1px solid $colbg;
+      }
+    }
+    .left{
+      @include myBorderRaidus(6px 0 0 6px);
+    }
+    .right{
+      @include myBorderRaidus(0 6px 6px 0);
+    }
+  }
+  &__transfers{
+    h4{
+      padding: 15px;
+      font-size: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .checkbox{
+      position: relative;
+      padding-top: 8px;
+      padding-left: 15px;
+      transition: .1s;
+      font-size: 14px;
+      span{
+        display: none;
+      }
+      &:hover{
+        background: $col2;
+        span{
+          display: block;
+          color: $colbg;
+          position: absolute;
+          right: 40px;
+          top: 50%;
+          font-size: 18px;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      }
+    }
+    .transfer {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      &:checked+label::before {
+        border-color: $colbg;
+        background-color: $col2;
+        background-image: url('../assets/mark.svg');
+      }
+    }
+    .transfer+label {
+      padding: 10px;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      transition: .5s;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 39px;
+        height: 39px;
+        border: 1px solid #d2d5d6;
+        border-radius: 3px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+        transition: .5s;
+      }
+      &:hover:before {
+        border-color: $colbg;
+      }
+    }
+  }
+}
+.showSettings{
+  animation: showSettings .5s linear forwards;
+}
+@keyframes showSettings {
+  0% {
+    top: -130vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.notShowSettings{
+  animation: notShowSettings .5s linear forwards;
+}
+@keyframes notShowSettings {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -130vh;
+  }
+}
